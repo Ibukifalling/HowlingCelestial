@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: howling-celestial
+spec:
+  serviceAccountName: cluster-admin-sa
+  containers:
+  - name: howling-celestial
+    image: python:3.11
+    command: ["/bin/bash", "-ce", "tail -f /dev/null"]
+    workingDir: /howling-celestial/core
+

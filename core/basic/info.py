@@ -1,4 +1,3 @@
-import os
 from kubernetes import client, config
 
 

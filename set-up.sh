@@ -10,7 +10,8 @@ else
     exit;
 fi
 
-kubectl apply -f deployment/set-up.yaml
+kubectl apply -f deployment/adminuser.yaml
+kubectl apply -f deployment/howling.yaml
 
 TIMEOUT=300  # 设置超时时间为300秒
 INTERVAL=10  # 设置轮询间隔为10秒
@@ -20,7 +21,7 @@ kubectl wait --for=condition=Ready pod/howling-celestial
 
 kubectl cp ./core howling-celestial:/howling-celestial
 
-kubectl exec howling-celestial -- pip install click kubernetes
+kubectl exec howling-celestial -- pip install kubernetes click
 
 echo 'Successfully deployed Howling-Celestial.'
 echo ''

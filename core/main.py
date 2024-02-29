@@ -8,6 +8,11 @@ from basic.info import *
     default=1,
     help="获取集群状态",
 )
+@click.option(
+    "--waf",
+    default=1,
+    help="开启waf",
+)
 
 def cli(info):
     if info:

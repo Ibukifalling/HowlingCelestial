@@ -1,0 +1,1388 @@
+{
+    "1000": {
+        "warn_msg": "sql keywords",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "select|union|update|delete|insert|table|from|ascii|hex|unhex|drop|load_file|substr|group_concat|dumpfile|bigint",
+        "action": "rx"
+    },
+    "1001": {
+        "warn_msg": "double quote",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "\\",
+        "action": "str"
+    },
+    "1002": {
+        "warn_msg": "0x, possible hex encoding",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "0x",
+        "action": "str"
+    },
+    "1003": {
+        "warn_msg": "mysql comment (/*)",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "/*",
+        "action": "str"
+    },
+    "1004": {
+        "warn_msg": "mysql comment (*/)",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "*/",
+        "action": "str"
+    },
+    "1005": {
+        "warn_msg": "mysql keyword (|)",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "|",
+        "action": "str"
+    },
+    "1006": {
+        "warn_msg": "mysql keyword (&&)",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "&&",
+        "action": "str"
+    },
+    "1007": {
+        "warn_msg": "mysql comment (--)",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "--",
+        "action": "str"
+    },
+    "1008": {
+        "warn_msg": "semicolon",
+        "detect_position": "BODY|URL|ARGS",
+        "rule": ";",
+        "action": "str"
+    },
+    "1010": {
+        "warn_msg": "open parenthesis, probable sql/xss",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "(",
+        "action": "str"
+    },
+    "1011": {
+        "warn_msg": "close parenthesis, probable sql/xss",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": ")",
+        "action": "str"
+    },
+    "1013": {
+        "warn_msg": "simple quote",
+        "detect_position": "ARGS|BODY|URL|$HEADERS_VAR:Cookie",
+        "rule": "'",
+        "action": "str"
+    },
+    "1015": {
+        "warn_msg": "comma",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": ",",
+        "action": "str"
+    },
+    "1016": {
+        "warn_msg": "mysql comment (#)",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "#",
+        "action": "str"
+    },
+    "1017": {
+        "warn_msg": "double arobase (@@)",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "@@",
+        "action": "str"
+    },
+    "1018": {
+        "warn_msg": "json functions and operators",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "::json|to_json|jsonb?_build|jsonb?_object|jsonb?_each|jsonb?_extract|jsonb?_typeof|jsonb?_array|jsonb_set|json_query|json_keys",
+        "action": "rx"
+    },
+    "1102": {
+        "warn_msg": "ftp:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "ftp://",
+        "action": "str"
+    },
+    "1103": {
+        "warn_msg": "php:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "php://",
+        "action": "str"
+    },
+    "1104": {
+        "warn_msg": "sftp:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "sftp://",
+        "action": "str"
+    },
+    "1105": {
+        "warn_msg": "zlib:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "zlib://",
+        "action": "str"
+    },
+    "1106": {
+        "warn_msg": "data:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "data://",
+        "action": "str"
+    },
+    "1107": {
+        "warn_msg": "glob:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "glob://",
+        "action": "str"
+    },
+    "1108": {
+        "warn_msg": "phar:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "phar://",
+        "action": "str"
+    },
+    "1109": {
+        "warn_msg": "file:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "file://",
+        "action": "str"
+    },
+    "1110": {
+        "warn_msg": "gopher:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "gopher://",
+        "action": "str"
+    },
+    "1111": {
+        "warn_msg": "zip:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "zip://",
+        "action": "str"
+    },
+    "1112": {
+        "warn_msg": "expect:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "expect://",
+        "action": "str"
+    },
+    "1113": {
+        "warn_msg": "input:// scheme",
+        "detect_position": "ARGS|BODY|$HEADERS_VAR:Cookie",
+        "rule": "input://",
+        "action": "str"
+    },
+    "1200": {
+        "warn_msg": "double dot",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "..",
+        "action": "str"
+    },
+    "1202": {
+        "warn_msg": "obvious probe",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "/etc/passwd",
+        "action": "str"
+    },
+    "1203": {
+        "warn_msg": "obvious windows path",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "c:\\\\",
+        "action": "str"
+    },
+    "1204": {
+        "warn_msg": "obvious probe",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "cmd.exe",
+        "action": "str"
+    },
+    "1205": {
+        "warn_msg": "backslash",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "\\\\",
+        "action": "str"
+    },
+    "1207": {
+        "warn_msg": "dir traversal bypass",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "/..;/",
+        "action": "str"
+    },
+    "1208": {
+        "warn_msg": "dir traversal bypass",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "/.;/",
+        "action": "str"
+    },
+    "1209": {
+        "warn_msg": "dir traversal bypass",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "/.%2e/",
+        "action": "str"
+    },
+    "1210": {
+        "warn_msg": "dir traversal bypass",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "/%2e./",
+        "action": "str"
+    },
+    "1312": {
+        "warn_msg": "tilde (~) character",
+        "detect_position": "BODY|URL|ARGS|$HEADERS_VAR:Cookie",
+        "rule": "~",
+        "action": "str"
+    },
+    "1314": {
+        "warn_msg": "grave accent (`)",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "`",
+        "action": "str"
+    },
+    "1315": {
+        "warn_msg": "double encoding",
+        "detect_position": "ARGS|URL|BODY|$HEADERS_VAR:Cookie",
+        "rule": "%[23].",
+        "action": "rx"
+    },
+    "1400": {
+        "warn_msg": "utf7/8 encoding",
+        "detect_position": "ARGS|BODY|URL|$HEADERS_VAR:Cookie",
+        "rule": "&#",
+        "action": "str"
+    },
+    "1401": {
+        "warn_msg": "M$ encoding",
+        "detect_position": "ARGS|BODY|URL|$HEADERS_VAR:Cookie",
+        "rule": "%U",
+        "action": "str"
+    },
+    "1500": {
+        "warn_msg": "asp/php/jsp/htaccess file upload",
+        "detect_position": "FILE_EXT",
+        "rule": "\\.ph|\\.asp|\\.ht|\\.jsp",
+        "action": "rx"
+    },
+    "1501": {
+        "warn_msg": "uploaded filename contains non-printable ascii chars",
+        "detect_position": "FILE_EXT",
+        "rule": "^[\\.a-z0-9_\\- ]+$",
+        "action": "rx"
+    },
+    "10000000": {
+        "warn_msg": "Wordpress in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "wordpress/",
+        "action": "str"
+    },
+    "10000001": {
+        "warn_msg": "masscan in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "masscan",
+        "action": "str"
+    },
+    "10000002": {
+        "warn_msg": "acunetix scan nginx buffer size",
+        "detect_position": "$HEADERS_VAR:Content-length",
+        "rule": "99999999999999999999999",
+        "action": "str"
+    },
+    "10000003": {
+        "warn_msg": "acunetix scan website",
+        "detect_position": "URL|BODY|$HEADERS_VAR:Accept|$HEADERS_VAR:User-Agent",
+        "rule": "acunetix",
+        "action": "str"
+    },
+    "10000004": {
+        "warn_msg": "acunetix scan website",
+        "detect_position": "$HEADERS_VAR:Accept",
+        "rule": "acunetix/wvs",
+        "action": "str"
+    },
+    "10000005": {
+        "warn_msg": "Havij in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "havij",
+        "action": "str"
+    },
+    "10000006": {
+        "warn_msg": "webmole in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "webmole",
+        "action": "str"
+    },
+    "10000007": {
+        "warn_msg": "nlpproject.info in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "nlpproject.info",
+        "action": "str"
+    },
+    "10000008": {
+        "warn_msg": "cloudmapping in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "cloudmapping",
+        "action": "str"
+    },
+    "10000009": {
+        "warn_msg": "Sucuri in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "sucuri",
+        "action": "str"
+    },
+    "10000010": {
+        "warn_msg": "Brutus in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "brutus/",
+        "action": "str"
+    },
+    "10000011": {
+        "warn_msg": "apachebench in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "apachebench",
+        "action": "str"
+    },
+    "10000012": {
+        "warn_msg": "netsparker in user-agent",
+        "detect_position": "URL",
+        "rule": "/netsparker",
+        "action": "str"
+    },
+    "10000013": {
+        "warn_msg": "Mysqloit in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "mysqloit",
+        "action": "str"
+    },
+    "10000014": {
+        "warn_msg": "network-services-auditor in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "network-services-auditor",
+        "action": "str"
+    },
+    "10000015": {
+        "warn_msg": "dav.pm in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "dav.pm",
+        "action": "str"
+    },
+    "10000016": {
+        "warn_msg": "w3af in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "w3af",
+        "action": "str"
+    },
+    "10000017": {
+        "warn_msg": "PHP-Injetion on UA",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "http_get_vars",
+        "action": "str"
+    },
+    "10000018": {
+        "warn_msg": "whisker in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "whisker",
+        "action": "str"
+    },
+    "10000019": {
+        "warn_msg": "whatweb in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "whatweb",
+        "action": "str"
+    },
+    "10000020": {
+        "warn_msg": "DirBuster in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "dirbuster",
+        "action": "str"
+    },
+    "10000021": {
+        "warn_msg": "zerodium in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "zerodium",
+        "action": "str"
+    },
+    "10000022": {
+        "warn_msg": "log4j attack detection",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "${",
+        "action": "str"
+    },
+    "10000023": {
+        "warn_msg": "python in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "python",
+        "action": "str"
+    },
+    "10000024": {
+        "warn_msg": "meterpreter in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "meterpreter",
+        "action": "str"
+    },
+    "10000025": {
+        "warn_msg": "zgrab in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "zgrab",
+        "action": "str"
+    },
+    "10000026": {
+        "warn_msg": "nmap in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "nmap",
+        "action": "str"
+    },
+    "10000027": {
+        "warn_msg": "curl in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "curl",
+        "action": "str"
+    },
+    "10000028": {
+        "warn_msg": "wget in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "wget",
+        "action": "str"
+    },
+    "10000029": {
+        "warn_msg": "slqmap in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "sqlmap",
+        "action": "str"
+    },
+    "10000030": {
+        "warn_msg": "paloaltonetworks in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "paloaltonetworks.com",
+        "action": "str"
+    },
+    "10000031": {
+        "warn_msg": "palo alto network in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "palo alto network",
+        "action": "str"
+    },
+    "10000032": {
+        "warn_msg": "Expense in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "Expense",
+        "action": "str"
+    },
+    "10000033": {
+        "warn_msg": "NetSystemsResearch in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "NetSystemsResearch",
+        "action": "str"
+    },
+    "10000034": {
+        "warn_msg": "Golang in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "Go-http",
+        "action": "str"
+    },
+    "10000035": {
+        "warn_msg": "libwww-perl in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "libwww-perl",
+        "action": "str"
+    },
+    "10000036": {
+        "warn_msg": "l9tcpid in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "l9tcpid",
+        "action": "str"
+    },
+    "10000037": {
+        "warn_msg": "l9explore in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "l9explore",
+        "action": "str"
+    },
+    "10000038": {
+        "warn_msg": "WPScan in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "wpscan",
+        "action": "str"
+    },
+    "10000039": {
+        "warn_msg": "WinHttpReq in user-agent",
+        "detect_position": "$HEADERS_VAR:User-Agent",
+        "rule": "WinHttpReq",
+        "action": "str"
+    },
+    "20000000": {
+        "warn_msg": "file access to .conf",
+        "detect_position": "URL",
+        "rule": ".conf",
+        "action": "str"
+    },
+    "20000001": {
+        "warn_msg": "file access to .ini",
+        "detect_position": "URL",
+        "rule": ".ini",
+        "action": "str"
+    },
+    "20000002": {
+        "warn_msg": "file access to .sql",
+        "detect_position": "URL",
+        "rule": ".sql",
+        "action": "str"
+    },
+    "20000003": {
+        "warn_msg": "file access to .txt",
+        "detect_position": "URL",
+        "rule": "\\.txt$",
+        "action": "rx"
+    },
+    "20000004": {
+        "warn_msg": "file access to sftp-config.json",
+        "detect_position": "URL|BODY",
+        "rule": "/sftp-config.json",
+        "action": "str"
+    },
+    "20000005": {
+        "warn_msg": "bazaar version control folder access",
+        "detect_position": "URL",
+        "rule": "/.bzr",
+        "action": "str"
+    },
+    "20000006": {
+        "warn_msg": "git version control folder access",
+        "detect_position": "URL",
+        "rule": "/.git",
+        "action": "str"
+    },
+    "20000007": {
+        "warn_msg": "mercurial version control folder access",
+        "detect_position": "URL",
+        "rule": "/.hg",
+        "action": "str"
+    },
+    "20000008": {
+        "warn_msg": "svn version control folder access",
+        "detect_position": "URL",
+        "rule": "/.svn",
+        "action": "str"
+    },
+    "20000009": {
+        "warn_msg": "bazaar version control folder access",
+        "detect_position": "URL",
+        "rule": "/bzr/",
+        "action": "str"
+    },
+    "20000010": {
+        "warn_msg": "git version control folder access",
+        "detect_position": "URL",
+        "rule": "/git/",
+        "action": "str"
+    },
+    "20000011": {
+        "warn_msg": "mercurial version control folder access",
+        "detect_position": "URL",
+        "rule": "/hg/",
+        "action": "str"
+    },
+    "20000012": {
+        "warn_msg": "svn version control folder access",
+        "detect_position": "URL",
+        "rule": "/svn/",
+        "action": "str"
+    },
+    "20000013": {
+        "warn_msg": "file access to .htpasswd",
+        "detect_position": "ARGS|BODY|URL|FILE_EXT",
+        "rule": ".htpasswd",
+        "action": "str"
+    },
+    "20000014": {
+        "warn_msg": "file access to .htaccess",
+        "detect_position": "ARGS|BODY|URL|FILE_EXT",
+        "rule": ".htaccess",
+        "action": "str"
+    },
+    "20000015": {
+        "warn_msg": "file access to .ds_store",
+        "detect_position": "URL",
+        "rule": ".ds_store",
+        "action": "str"
+    },
+    "20000016": {
+        "warn_msg": "file access to changelog",
+        "detect_position": "URL",
+        "rule": "changelog",
+        "action": "str"
+    },
+    "20000017": {
+        "warn_msg": "file access to core dumps",
+        "detect_position": "URL",
+        "rule": "^/core.\\d+$",
+        "action": "rx"
+    },
+    "20000018": {
+        "warn_msg": "file access to .module (drupal)",
+        "detect_position": "URL",
+        "rule": "\\.module$",
+        "action": "rx"
+    },
+    "20000019": {
+        "warn_msg": "file access to web.config (drupal)",
+        "detect_position": "URL",
+        "rule": "web.config",
+        "action": "str"
+    },
+    "20000020": {
+        "warn_msg": "file access to release notes",
+        "detect_position": "URL",
+        "rule": "release[-_]notes\\.",
+        "action": "rx"
+    },
+    "20000021": {
+        "warn_msg": "file access to cache files",
+        "detect_position": "URL",
+        "rule": "~$",
+        "action": "rx"
+    },
+    "20000022": {
+        "warn_msg": "folder access to WEB-INF",
+        "detect_position": "URL|BODY|ARGS",
+        "rule": "web-inf",
+        "action": "str"
+    },
+    "20000023": {
+        "warn_msg": "Exposed OpenWRT",
+        "detect_position": "URL",
+        "rule": "/cgi-bin/luci",
+        "action": "str"
+    },
+    "20000024": {
+        "warn_msg": "Exposed cgi-bin",
+        "detect_position": "URL",
+        "rule": "^/cgi-bin/.+\\.cgi$",
+        "action": "rx"
+    },
+    "20000025": {
+        "warn_msg": "Exposed Jenkins",
+        "detect_position": "URL",
+        "rule": "/jenkins",
+        "action": "str"
+    },
+    "20000026": {
+        "warn_msg": "Exposed Oracle WebLogic Server Administration Console",
+        "detect_position": "URL",
+        "rule": "/console/login/LoginForm.jsp",
+        "action": "str"
+    },
+    "20000027": {
+        "warn_msg": "Exposed Nuxeo Enterprise Platform",
+        "detect_position": "URL",
+        "rule": "/nuxeo/login.jsp",
+        "action": "str"
+    },
+    "20000028": {
+        "warn_msg": "Exposed Zabbix",
+        "detect_position": "URL",
+        "rule": "/zabbix/index.php",
+        "action": "str"
+    },
+    "20000029": {
+        "warn_msg": "burp collaborator",
+        "detect_position": "ARGS|BODY|HEADERS",
+        "rule": "burpcollaborator.net",
+        "action": "str"
+    },
+    "20000030": {
+        "warn_msg": "Netsparker",
+        "detect_position": "URL",
+        "rule": "/netsparker",
+        "action": "str"
+    },
+    "20000031": {
+        "warn_msg": "HTTP - Smuggling-Attempt (NewLine in URI)",
+        "detect_position": "URL",
+        "rule": "\\n\\r",
+        "action": "str"
+    },
+    "20000032": {
+        "warn_msg": "HOST-Header Injection",
+        "detect_position": "$HEADERS_VAR:Host",
+        "rule": "^[a-zA-Z\\d-]+\\.[a-zA-Z]+$",
+        "action": "rx"
+    },
+    "20000033": {
+        "warn_msg": "/bin/sh in URI",
+        "detect_position": "URL|BODY|ARGS|$HEADERS_VAR:User-Agent|$HEADERS_VAR:Cookie",
+        "rule": "/bin/sh",
+        "action": "str"
+    },
+    "20000034": {
+        "warn_msg": "/etc/passwd in URI",
+        "detect_position": "URL|BODY|ARGS|$HEADERS_VAR:User-Agent|$HEADERS_VAR:Cookie",
+        "rule": "/etc/passwd",
+        "action": "str"
+    },
+    "20000035": {
+        "warn_msg": "/etc/shadow in URI",
+        "detect_position": "URL|BODY|ARGS|$HEADERS_VAR:User-Agent|$HEADERS_VAR:Cookie",
+        "rule": "/etc/shadow",
+        "action": "str"
+    },
+    "20000036": {
+        "warn_msg": "/etc/hosts in URI",
+        "detect_position": "URL|BODY|ARGS|$HEADERS_VAR:User-Agent|$HEADERS_VAR:Cookie",
+        "rule": "/etc/hosts",
+        "action": "str"
+    },
+    "20000037": {
+        "warn_msg": "/Windows/system.ini in URI",
+        "detect_position": "URL|BODY|ARGS|$HEADERS_VAR:User-Agent|$HEADERS_VAR:Cookie",
+        "rule": "/Windows/system.ini",
+        "action": "str"
+    },
+    "20000038": {
+        "warn_msg": " possible XML/XXE-Exploitation atempt (Doctype)",
+        "detect_position": "BODY",
+        "rule": "<!DOCTYPE(\\s+)(%*\\s*)([{}:.a-zA-Z0-9_-]*)(\\s+)SYSTEM",
+        "action": "rx"
+    },
+    "20000039": {
+        "warn_msg": "Abnormal double http:// in HTTP header",
+        "detect_position": "HEADERS",
+        "rule": "http://http://",
+        "action": "str"
+    },
+    "20000040": {
+        "warn_msg": "Abnormal double http:// in HTTP header",
+        "detect_position": "HEADERS",
+        "rule": "https://http://",
+        "action": "str"
+    },
+    "20000041": {
+        "warn_msg": "Abnormal double http:// in HTTP header",
+        "detect_position": "HEADERS",
+        "rule": "http://https://",
+        "action": "str"
+    },
+    "20000042": {
+        "warn_msg": "Abnormal double http:// in HTTP header",
+        "detect_position": "HEADERS",
+        "rule": "https://https://",
+        "action": "str"
+    },
+    "20000043": {
+        "warn_msg": "CVE-2018-20062",
+        "detect_position": "URL",
+        "rule": "index/\\think\\app/invokefunction",
+        "action": "str"
+    },
+    "20000044": {
+        "warn_msg": "AWS Credential Stealer",
+        "detect_position": "URL",
+        "rule": "/.aws/",
+        "action": "str"
+    },
+    "20000045": {
+        "warn_msg": "Access to dot folder or file",
+        "detect_position": "URL",
+        "rule": "/\\.[^.]",
+        "action": "rx"
+    },
+    "20000046": {
+        "warn_msg": "Exposed Microsoft Exchange",
+        "detect_position": "URL",
+        "rule": "autodiscover/autodiscover.json",
+        "action": "str"
+    },
+    "20000047": {
+        "warn_msg": "Exposed Microsoft Exchange",
+        "detect_position": "URL",
+        "rule": "autodiscover/autodiscover.xml",
+        "action": "str"
+    },
+    "20000048": {
+        "warn_msg": "Exposed Microsoft Exchange",
+        "detect_position": "URL",
+        "rule": "/auth.owa",
+        "action": "str"
+    },
+    "20000049": {
+        "warn_msg": "CVE-2021-3129",
+        "detect_position": "URL",
+        "rule": "/_ignition/execute-solution",
+        "action": "str"
+    },
+    "20000050": {
+        "warn_msg": "CVE-2018-13379",
+        "detect_position": "ARGS|BODY|HEADERS",
+        "rule": "/sslvpn_websession",
+        "action": "str"
+    },
+    "20000051": {
+        "warn_msg": "Exposed Apache Tomcat Administration Panel",
+        "detect_position": "URL",
+        "rule": "/manager/html",
+        "action": "str"
+    },
+    "20000052": {
+        "warn_msg": "NMAP enumeration attempt",
+        "detect_position": "URL",
+        "rule": "/HNAP1",
+        "action": "str"
+    },
+    "20000053": {
+        "warn_msg": "NMAP enumeration attempt",
+        "detect_position": "URL",
+        "rule": "/default\\.(asp|aspx|cfm|cgi|jsa|jsp|php|pl)$",
+        "action": "rx"
+    },
+    "20000054": {
+        "warn_msg": "NMAP enumeration attempt",
+        "detect_position": "URL",
+        "rule": "/start\\.(asp|aspx|cfm|cgi|jsa|jsp|php|pl)$",
+        "action": "rx"
+    },
+    "20000055": {
+        "warn_msg": "NMAP enumeration attempt",
+        "detect_position": "URL",
+        "rule": "/localstart\\.(asp|aspx|cfm|cgi|jsa|jsp|php|pl)$",
+        "action": "rx"
+    },
+    "20000056": {
+        "warn_msg": "NMAP enumeration attempt",
+        "detect_position": "URL",
+        "rule": "/admin\\.(asp|aspx|cfm|cgi|jsa|jsp|php|pl)$",
+        "action": "rx"
+    },
+    "20000057": {
+        "warn_msg": "NMAP enumeration attempt",
+        "detect_position": "URL",
+        "rule": "/nmaplowercheck",
+        "action": "str"
+    },
+    "20000058": {
+        "warn_msg": "Siemens PLC scan",
+        "detect_position": "URL",
+        "rule": "/__Additional",
+        "action": "str"
+    },
+    "20000059": {
+        "warn_msg": "Siemens PLC scan",
+        "detect_position": "URL",
+        "rule": "/docs/cplugError.html/",
+        "action": "str"
+    },
+    "20000060": {
+        "warn_msg": "Siemens PLC scan",
+        "detect_position": "URL",
+        "rule": "/Portal/Portal.mwsl",
+        "action": "str"
+    },
+    "20000061": {
+        "warn_msg": "Citrix XenApp",
+        "detect_position": "URL",
+        "rule": "/scripts/wpnbr.dll",
+        "action": "str"
+    },
+    "20000062": {
+        "warn_msg": "CVE-2018-1000861",
+        "detect_position": "URL",
+        "rule": "/securityRealm/user/admin/search/index",
+        "action": "str"
+    },
+    "20000063": {
+        "warn_msg": "CVE-2019-1003029, CVE-2019-1003030",
+        "detect_position": "URL",
+        "rule": "/descriptorByName/org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.SecureGroovyScript/checkScript/",
+        "action": "str"
+    },
+    "20000064": {
+        "warn_msg": "Attempted Log4J Bypass",
+        "detect_position": "URL|ARGS|BODY|HEADERS",
+        "rule": "${env:NaN:-",
+        "action": "str"
+    },
+    "20000065": {
+        "warn_msg": "\\Windows\\system.ini in URI",
+        "detect_position": "URL|BODY|ARGS|$HEADERS_VAR:User-Agent|$HEADERS_VAR:Cookie",
+        "rule": "\\Windows\\system.ini",
+        "action": "str"
+    },
+    "20000066": {
+        "warn_msg": "/Windows/win.ini in URI",
+        "detect_position": "URL|BODY|ARGS|$HEADERS_VAR:User-Agent|$HEADERS_VAR:Cookie",
+        "rule": "/Windows/win.ini",
+        "action": "str"
+    },
+    "20000067": {
+        "warn_msg": "\\Windows\\win.ini in URI",
+        "detect_position": "URL|BODY|ARGS|$HEADERS_VAR:User-Agent|$HEADERS_VAR:Cookie",
+        "rule": "\\Windows\\win.ini",
+        "action": "str"
+    },
+    "20000068": {
+        "warn_msg": "Exposed Apache Host Manager App",
+        "detect_position": "URL",
+        "rule": "/manager/text/list",
+        "action": "str"
+    },
+    "20000069": {
+        "warn_msg": "CVE-2022-22947",
+        "detect_position": "URL",
+        "rule": "/actuator/gateway/routes",
+        "action": "str"
+    },
+    "20000070": {
+        "warn_msg": "CVE-2022-22965",
+        "detect_position": "RAW_BODY",
+        "rule": "class.module.classLoader.resources.",
+        "action": "str"
+    },
+    "20000071": {
+        "warn_msg": "CVE-2022-22965",
+        "detect_position": "HEADERS",
+        "rule": "<%|%>",
+        "action": "rx"
+    },
+    "20000072": {
+        "warn_msg": "CVE-2021-28481",
+        "detect_position": "URL",
+        "rule": "/ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application",
+        "action": "str"
+    },
+    "20000073": {
+        "warn_msg": "Prevent IndoXploit/IDX Shell dump access",
+        "detect_position": "URL",
+        "rule": "/idx_config",
+        "action": "str"
+    },
+    "20000074": {
+        "warn_msg": "Access all grafana folders",
+        "detect_position": "$URL:/api/search|$ARGS_VAR:folderIds",
+        "rule": "^0$",
+        "action": "rx"
+    },
+    "20000075": {
+        "warn_msg": "file access to .yml",
+        "detect_position": "URL",
+        "rule": ".yml",
+        "action": "str"
+    },
+    "20000076": {
+        "warn_msg": "file access to .yaml",
+        "detect_position": "URL",
+        "rule": ".yaml",
+        "action": "str"
+    },
+    "20000077": {
+        "warn_msg": "file access to .ctmpl",
+        "detect_position": "URL",
+        "rule": "\\.ctmpl$",
+        "action": "rx"
+    },
+    "20000078": {
+        "warn_msg": "file access to .hcl",
+        "detect_position": "URL",
+        "rule": "\\.hcl$",
+        "action": "rx"
+    },
+    "20000079": {
+        "warn_msg": "file access to .md",
+        "detect_position": "URL",
+        "rule": "\\.md$",
+        "action": "rx"
+    },
+    "20000080": {
+        "warn_msg": "file access to readme",
+        "detect_position": "URL",
+        "rule": "read[-_]?me",
+        "action": "rx"
+    },
+    "20000081": {
+        "warn_msg": "file access to .toml",
+        "detect_position": "URL",
+        "rule": "\\.toml$",
+        "action": "rx"
+    },
+    "20000082": {
+        "warn_msg": "Exposed AWS Elastic Beanstalk configuration",
+        "detect_position": "URL",
+        "rule": "dockerrun.aws.json",
+        "action": "str"
+    },
+    "20000083": {
+        "warn_msg": "file access to temporary backup files",
+        "detect_position": "URL",
+        "rule": ".bak",
+        "action": "str"
+    },
+    "20000084": {
+        "warn_msg": "path traversal in nuxt framework",
+        "detect_position": "URL",
+        "rule": "_nuxt/@",
+        "action": "str"
+    },
+    "20000085": {
+        "warn_msg": "Exposed AWS config files",
+        "detect_position": "URL",
+        "rule": "awsconfig",
+        "action": "str"
+    },
+    "20000086": {
+        "warn_msg": "Exposed AWS config files",
+        "detect_position": "URL",
+        "rule": "aws-config",
+        "action": "str"
+    },
+    "20000087": {
+        "warn_msg": "Exposed AWS config files",
+        "detect_position": "URL",
+        "rule": "awscred",
+        "action": "str"
+    },
+    "20000088": {
+        "warn_msg": "Exposed AWS config files",
+        "detect_position": "URL",
+        "rule": "aws-cred",
+        "action": "str"
+    },
+    "20000089": {
+        "warn_msg": "Exposed temp copy",
+        "detect_position": "URL",
+        "rule": ".old",
+        "action": "str"
+    },
+    "20000090": {
+        "warn_msg": "Exposed temp copy",
+        "detect_position": "URL",
+        "rule": ".save",
+        "action": "str"
+    },
+    "20000091": {
+        "warn_msg": "Exposed temp copy",
+        "detect_position": "URL",
+        "rule": ".DS_Store",
+        "action": "str"
+    },
+    "20000092": {
+        "warn_msg": "Exposed vscode directory",
+        "detect_position": "URL",
+        "rule": "vscode",
+        "action": "str"
+    },
+    "30000000": {
+        "warn_msg": "Wordpress XMLRPC possible Password Brute Force",
+        "detect_position": "$URL:/xmlrpc.php|BODY",
+        "rule": "system.multicall",
+        "action": "str"
+    },
+    "30000001": {
+        "warn_msg": "WordPress XMLRPC Enumeration system.listMethods",
+        "detect_position": "$URL:/xmlrpc.php|BODY",
+        "rule": "system.listmethods",
+        "action": "str"
+    },
+    "30000002": {
+        "warn_msg": "WordPress XMLRPC Enumeration system.getCapabilities",
+        "detect_position": "$URL:/xmlrpc.php|BODY",
+        "rule": "system.getcapabilities",
+        "action": "str"
+    },
+    "30000003": {
+        "warn_msg": "WordPress TotalCache-DBCache-Access",
+        "detect_position": "URL",
+        "rule": "/w3tc/dbcache",
+        "action": "str"
+    },
+    "30000004": {
+        "warn_msg": "WordPress Uploadify-Access",
+        "detect_position": "URL",
+        "rule": "/uploadify/uploadify.php",
+        "action": "str"
+    },
+    "30000005": {
+        "warn_msg": "Access To mm-forms-community upload dir",
+        "detect_position": "URL",
+        "rule": "/wp-content/plugins/mm-forms-community/upload/temp/",
+        "action": "str"
+    },
+    "30000006": {
+        "warn_msg": "WordPress access to wp-config.php",
+        "detect_position": "BODY|ARGS|URL",
+        "rule": "wp-config.php",
+        "action": "str"
+    },
+    "30000007": {
+        "warn_msg": "WordPress malicious access to ALFA_DATA path",
+        "detect_position": "URL",
+        "rule": "ALFA_DATA",
+        "action": "str"
+    },
+    "30000008": {
+        "warn_msg": "WordPress malicious access to alfacgiapi path",
+        "detect_position": "URL",
+        "rule": "alfacgiapi",
+        "action": "str"
+    },
+    "30000009": {
+        "warn_msg": "WordPress malicious access to cgialfa path",
+        "detect_position": "URL",
+        "rule": "cgialfa",
+        "action": "str"
+    },
+    "40000000": {
+        "warn_msg": "gzinflate in URI",
+        "detect_position": "URL|BODY|ARGS",
+        "rule": "gzinflate(",
+        "action": "str"
+    },
+    "40000001": {
+        "warn_msg": "php system called",
+        "detect_position": "URL|BODY|ARGS",
+        "rule": "system(",
+        "action": "str"
+    },
+    "40000002": {
+        "warn_msg": "php base64_decode called",
+        "detect_position": "URL|BODY|ARGS",
+        "rule": "base64_decode(",
+        "action": "str"
+    },
+    "40000003": {
+        "warn_msg": "php eval called",
+        "detect_position": "URL|BODY|ARGS",
+        "rule": "@eval",
+        "action": "str"
+    },
+    "40000004": {
+        "warn_msg": "php eval called",
+        "detect_position": "URL|BODY|ARGS",
+        "rule": "eval\\((\\s+)?\\$_",
+        "action": "rx"
+    },
+    "40000005": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/db-admin",
+        "action": "str"
+    },
+    "40000006": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/dbadmin",
+        "action": "str"
+    },
+    "40000007": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/myadmin",
+        "action": "str"
+    },
+    "40000008": {
+        "warn_msg": "MysqlDumper",
+        "detect_position": "URL",
+        "rule": "/mysqldumper ",
+        "action": "str"
+    },
+    "40000009": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/mysqlmanager",
+        "action": "str"
+    },
+    "40000010": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/p/m/a/",
+        "action": "str"
+    },
+    "40000011": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/php-my-admin",
+        "action": "str"
+    },
+    "40000012": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/php-myadmin",
+        "action": "str"
+    },
+    "40000013": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/phpmanager",
+        "action": "str"
+    },
+    "40000014": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/phpmy",
+        "action": "str"
+    },
+    "40000015": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/phpmy-admin",
+        "action": "str"
+    },
+    "40000016": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/phpmyadmin",
+        "action": "str"
+    },
+    "40000017": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/phppgadmin ",
+        "action": "str"
+    },
+    "40000018": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/pma",
+        "action": "str"
+    },
+    "40000019": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/sql-admin",
+        "action": "str"
+    },
+    "40000020": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/sqladmin",
+        "action": "str"
+    },
+    "40000021": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/sqlweb",
+        "action": "str"
+    },
+    "40000022": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/sysadmin",
+        "action": "str"
+    },
+    "40000023": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/webadmin",
+        "action": "str"
+    },
+    "40000024": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/webdb",
+        "action": "str"
+    },
+    "40000025": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/websql",
+        "action": "str"
+    },
+    "40000026": {
+        "warn_msg": "CVE-2017-9841",
+        "detect_position": "URL",
+        "rule": "eval-stdin.php",
+        "action": "str"
+    },
+    "40000027": {
+        "warn_msg": "PHP easter egg credits",
+        "detect_position": "URL|BODY|ARGS",
+        "rule": "PHP[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+        "action": "rx"
+    },
+    "40000028": {
+        "warn_msg": "Block PHP Xdebug",
+        "detect_position": "BODY|ARGS|HEADERS|NAME",
+        "rule": "XDEBUG_SESSION",
+        "action": "str"
+    },
+    "40000029": {
+        "warn_msg": "PHPinfo access",
+        "detect_position": "URL|BODY|ARGS",
+        "rule": "phpinfo",
+        "action": "str"
+    },
+    "40000030": {
+        "warn_msg": "Access to php install",
+        "detect_position": "URL",
+        "rule": "install.php",
+        "action": "str"
+    },
+    "40000031": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/mysql-admin",
+        "action": "str"
+    },
+    "40000032": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/mysqladmin",
+        "action": "str"
+    },
+    "40000033": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/sqlmanager",
+        "action": "str"
+    },
+    "40000034": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "/mysql/",
+        "action": "str"
+    },
+    "40000035": {
+        "warn_msg": "Access to Lavarel telescope",
+        "detect_position": "URL",
+        "rule": "/telescope/",
+        "action": "str"
+    },
+    "40000036": {
+        "warn_msg": "SQL Admin Interface",
+        "detect_position": "URL",
+        "rule": "adminer",
+        "action": "str"
+    },
+    "40000037": {
+        "warn_msg": "Symfony Web Framework dev mode",
+        "detect_position": "URL",
+        "rule": "app_dev",
+        "action": "str"
+    },
+    "50000000": {
+        "warn_msg": "Transact-SQL GESP",
+        "detect_position": "BODY|HEADERS|ARGS|URL",
+        "rule": "xp_(cmdshell|enumgroups|grantlogin|logevent|loginconfig|logininfo|msver|revokelogin|sprintf|sqlmaint|sscanf)",
+        "action": "rx"
+    },
+    "50000001": {
+        "warn_msg": "SQL Injection",
+        "detect_position": "BODY|HEADERS|ARGS|URL",
+        "rule": "(CHAR|CONCAT|CONCAT_WS)\\([0-9a-fx,]+\\)",
+        "action": "rx"
+    },
+    "50000002": {
+        "warn_msg": "SQL Injection",
+        "detect_position": "BODY|HEADERS|ARGS|URL",
+        "rule": "SLEEP\\([0-9]+\\)",
+        "action": "rx"
+    },
+    "50000003": {
+        "warn_msg": "SQL Injection",
+        "detect_position": "BODY|HEADERS|ARGS|URL",
+        "rule": "\\bBENCHMARK\\b\\([0-9,]+.+\\)",
+        "action": "rx"
+    },
+    "50000004": {
+        "warn_msg": "SQL Injection",
+        "detect_position": "BODY|HEADERS|ARGS|URL",
+        "rule": "\\b(UNION|INFORMATION_SCHEMA)\\b.*(#|--|\\*)",
+        "action": "rx"
+    },
+    "50000005": {
+        "warn_msg": "SQL Injection",
+        "detect_position": "BODY|HEADERS|ARGS|URL",
+        "rule": "(MD\\d|SHA\\d+)\\(.+\\)",
+        "action": "rx"
+    }
+}
